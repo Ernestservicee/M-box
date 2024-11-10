@@ -13,4 +13,7 @@ WORKDIR /Video-bot
 RUN pip install -U pip
 RUN pip install -U -r requirements.txt
 
+# Explicitly install latest pytgcalls
+RUN pip install -U pytgcalls
+
 CMD ["python3", "main.py"]
