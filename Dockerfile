@@ -14,6 +14,6 @@ RUN pip install -U pip
 RUN pip install -U -r requirements.txt
 
 # Explicitly install latest pytgcalls
-RUN pip install -U pytgcalls
+RUN pip install pytgcalls==3.0.0.dev21 
 
 CMD ["python3", "main.py"]
