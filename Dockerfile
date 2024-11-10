@@ -1,21 +1,16 @@
 FROM debian:latest
 
-
-
 RUN apt update && apt upgrade -y
+RUN apt install git curl python3-pip ffmpeg python3-venv -y
 
-RUN apt install git curl python3-pip ffmpeg -y
-
-RUN pip3 install -U pip
+# Set up a virtual environment
+RUN python3 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
 
 RUN cd /
-
-RUN https://github.com/Ernestservicee/Video-bot
-
-RUN cd Video-bot
-
+RUN git clone https://github.com/Ernestservicee/Video-bot
 WORKDIR /Video-bot
+RUN pip install -U pip
+RUN pip install -U -r requirements.txt
 
-RUN pip3 install -U -r requirements.txt
-
-CMD python3 main.py
+CMD ["python3", "main.py"]
