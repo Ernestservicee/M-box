@@ -15,8 +15,8 @@ RUN pip install --upgrade pip setuptools
 # Install additional dependencies first to avoid errors
 RUN pip install Pyrogram ffmpeg-python
 
-# Install the specific version of pytgcalls with the --pre flag to allow pre-release versions
-RUN pip install --pre pytgcalls==3.0.0.dev21
+# Install pytgcalls directly from GitHub to avoid the dependency issue
+RUN pip install git+https://github.com/MarshalX/tgcalls.git@dev
 
 # Clone the repository
 RUN cd / && git clone https://github.com/Ernestservicee/Video-bot
